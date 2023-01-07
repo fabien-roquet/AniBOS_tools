@@ -1,0 +1,17 @@
+.ipynb_checkpoints/
+calibration_plots/
+doc_latex/
+final_dataset_prof/
+*.png
+list_*.csv
+list_*.txt
+list_*.pkl
+plots/
+share/
+temporary/
+public/
+python/__pycache__/
+python/.ipynb_checkpoints/
+python/out.txt
+python/Untitled.ipynb
+python/soap_credentials.txt
