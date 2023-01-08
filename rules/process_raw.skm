@@ -1,0 +1,8 @@
+rule all_process:
+    input:
+        expand(
+            os.path.join(PROCESSED, "{exp_config}/xnemogcm.nemo.nc"),
+            exp_config=exp_configs,
+        )
+
+        

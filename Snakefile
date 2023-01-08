@@ -1,7 +1,16 @@
 from os import listdir
 import os.path
 from pathlib import Path
+import pandas as pd
 
+DATADIR = Path("data")
+SMRUDIR = DATADIR / "smru"
+RAWDIR = DATADIR / "raw"
+
+PROCESSDIR = DATADIR / "processed"
+MATLABDIR = Path("matlab")
+CLIMDIR = Path("clim")
+CONFDIR = Path("conf_files")
 
 DATA = Path("data")
 RAW = DATA / "raw"
@@ -10,42 +19,6 @@ ALL_EXP = [i for i in listdir(RAW) if (RAW / i).is_dir()]
 FIGURES = Path("figures")
 FIGURES_PAPER = FIGURES / "paper"
 CONFIGURATION = Path("configuration")
-
-# Organization of the folders
-""" For each experiment in data/raw
-- data/raw
-  |- EXP_blabla
-    |- Experiments
-      |- EXP_bla1
-        |- VARS
-          |- BASIN_blabla_grid_X.nc
-        |- domcfg_blabla
-        |- namelist_cfg
-      |- EXP_bla2
-        |- ...
-
-- data/processed
-  |- EXP_blabla
-    |- EXP_bla1
-      |- delta_t.txt
-      |- xnemogcm.nemo.nc
-      |- etc
-    |- EXP_bla2
-      |- ...
-"""
-
-# Naming conventions
-"""
-An experiment (exp) contains one of multiple configurations (config) that each contain a run.
-
-Experiments are the main folder containing there configurations runs.
-The name of an experiment should be explicit of what is done
-(e.g. EXP_1_degree_seasonal_variation to study the effect of seasonality)
-
-The configurations are called from the name of the namelist parameters that change
-between all the configurations of a same experiment
-(e.g. EXP_ln_ann_cyc_.false. and EXP_ln_ann_cyc_.true.)
-"""
 
 exp_configs = []
 exp_configs_dict = {}

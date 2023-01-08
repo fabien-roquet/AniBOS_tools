@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 import gsw
 import netCDF4 as nc
-import meop
+import AniBOS_tools.lib_meop_format.meop as meop
 import meop_filenames
 
 processdir = meop_filenames.processdir

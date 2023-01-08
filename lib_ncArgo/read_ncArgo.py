@@ -1,15 +1,12 @@
 from pathlib import Path
-import os
-import shutil
 import xarray as xr
 import pandas as pd
 import numpy as np
 import gsw
-
-import warnings
-warnings.filterwarnings("ignore", category=RuntimeWarning)
-warnings.filterwarnings("ignore", category=FutureWarning)
-
+import matplotlib.pylab as plt
+import cartopy.crs as ccrs
+import cartopy.feature as cfeature
+import cmocean.cm as cmo
 
 
 
