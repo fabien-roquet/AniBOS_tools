@@ -1,0 +1,20 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+dataclasses = "*"
+netcdf4 = "*"
+numpy = "*"
+pandas = "*"
+scipy = "*"
+xarray = "*"
+gsw = "*"
+matplotlib = "*"
+cmocean = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"

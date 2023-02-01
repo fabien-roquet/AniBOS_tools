@@ -1,5 +1,5 @@
 # matlab.engine must be imported first
-import matlab.engine
+from lib_matlab/run_matlab import matlab_dataclass
 
 from pathlib import Path
 import os
@@ -22,51 +22,9 @@ processdir = meop_filenames.processdir
 
 #--------------------  MATLAB  ----------------------------#
 
-# pointer to matlab engine
-eng = []
+matlab = matlab_dataclass()
+eng = matlab.matlab_engine
 
-def start_matlab():
-    # Start matlab iif not already started
-    global eng
-    try:
-        eng.eval("disp('matlab already started')",nargout=0)
-        print('matlab already started')
-        run_command(f"cd {processdir};")
-        print('PWD:',eng.pwd())
-    except:
-        eng = matlab.engine.start_matlab()
-        print('matlab started')
-        run_command(f"cd {processdir};")
-        print('PWD:',eng.pwd())
-    return
-
-def stop_matlab():
-    global eng
-    eng.quit()
-    eng = []
-    return
-    
-
-def print_matlab(namevar):
-    with io.StringIO() as out:
-        eng.eval(namevar,nargout=0,stdout=out,stderr=out)
-        print(out.getvalue())
-    
-    
-def run_command(cmd,verbose=True):
-    # execute a matlab command
-    with io.StringIO() as out, io.StringIO() as err:
-        try:
-            print(cmd)
-            eng.eval(cmd,nargout=0,stdout=out,stderr=err)
-            if verbose:
-                print(out.getvalue())
-            return True
-        except:
-            if verbose:
-                print(err.getvalue())
-            return False
-        
 # init mirounga and load conf
 def init_mirounga():
     eng.addpath(str(processdir / 'matlab'))
