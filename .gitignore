@@ -15,3 +15,5 @@ python/.ipynb_checkpoints/
 python/out.txt
 python/Untitled.ipynb
 python/soap_credentials.txt
+conf_files/
+data/
